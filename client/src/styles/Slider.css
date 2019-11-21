@@ -1,0 +1,30 @@
+.scrollingWrapper {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	width: 100%;
+}
+
+.ui.card {
+	margin: 1% 2% 1% 2%;
+	flex: 0 0 auto;
+}
+.ui.card:first-child,
+.ui.card:last-child {
+	margin: 1% 2% 1% 2%;
+}
+
+/* -webkit- (Chrome, Safari, newer versions of Opera): */
+.scrollingWrapper::-webkit-scrollbar {
+	display: none;
+}
+
+/* -moz- (Firefox): */
+.scrollingWrapper {
+	overflow: -moz-scrollbars-none;
+}
+
+/* -ms- (Internet Explorer +10): */
+.scrollingWrapper {
+	-ms-overflow-style: none;
+}
