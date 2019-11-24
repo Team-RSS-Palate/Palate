@@ -6,20 +6,40 @@ module.exports = (sequelize, DataTypes) => {
   class Post extends Model {}
 
   Post.init({
-    content: {
+    // post_id:{
+    //   type: DataTypes.BIGINT,
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    //   allowNull: true
+    // },
+    title: {
       type: DataTypes.STRING,
-      validate: {
-        len: [3, 250],
-        notEmpty: true,
-      }
+      allowNull: true
     },
+    category :{
+      type: DataTypes.TEXT
+
+    },
+    description: {
+      type: DataTypes.TEXT,
+    
+    },
+    imageLink:{
+      type: DataTypes.TEXT
+    }
   }, {
     sequelize,
     modelName: 'post'
   });
   sequelize.sync()
   .then(() => Post.create({
-    content: 'jim',
+    title : "Pancakes",
+    category: "Breakfast",
+    imageLink : "https://images-gmi-pmc.edge-generalmills.com/edfaaf9f-9bde-426a-8d67-3284e9e496ae.jpg",
+    description: "Healthy Meal For KIDS! YOU WANT TO BLAHAHAAHAHAHAHAAHHA"
+
+   
+  
   }))
   .then(jane => {
     console.log(jane.toJSON());
