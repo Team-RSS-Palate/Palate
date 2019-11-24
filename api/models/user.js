@@ -22,6 +22,18 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: sequelize.STRING,
         allowNull: false
+      },
+      {
+        post_id: {
+          type: Sequelize.INTEGER,
+
+          references: {
+            model: postMessage,
+            key: post_id,
+            // This declares when to check the fk constraints
+            // deferrable: sequelize.deferrable.INITALLY_DEFERRED
+          }
+        }
       }
     },
     {
@@ -32,7 +44,8 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = models => {
     // associations can be defined here
-    // User.hasMany(Posts);
+
+    User.HasMany(Posts);
   };
 
   return User;

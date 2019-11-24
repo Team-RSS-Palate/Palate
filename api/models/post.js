@@ -1,7 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
 
-
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {}
 
@@ -13,14 +12,19 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         allowNull: false
       },
+      title: {
+        type: sequelize.STRING,
+        allowNull: false
+      },
       description: {
         type: sequelize.TEXT,
         notEmpty: false
-      }
+      },
 
       // Timestamps
-      createdAt: Sequelize.DATE,
-    }, {
+      createdAt: Sequelize.DATE
+    },
+    {
       sequelize,
       modelName: 'post'
     }
@@ -29,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
   Post.associate = models => {
     // associations can be defined here
 
-    Post.BelongsTo(User)
+    Post.BelongsTo(User);
+    Post.HasMany(Comment);
   };
 
   return Post;

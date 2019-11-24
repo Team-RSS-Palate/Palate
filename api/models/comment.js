@@ -6,6 +6,12 @@ module.exports = (sequelize, DataTypes) => {
 
   Comment.init(
     {
+      comment_id: {
+        type: sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false
+      },
       content: {
         type: DataTypes.TEXT,
         validate: {
