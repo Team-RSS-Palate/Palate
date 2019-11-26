@@ -1,47 +1,39 @@
 import React from 'react';
+import '../styles/PostStyles.css';
+import CategoryList from '../components/CategoryList';
+
 import buildingBlocks from '../images/building_blocks.svg';
 
-const rightSide = {
-	marginTop: '13%',
-	paddingBottom: '88px'
-};
-const leftSide = {
-	marginTop: '10%',
-	fontSize: '48px',
-	fontFamily: 'Roboto',
-	color: 'rgba(0, 0, 0, 0.85)',
-	fontStyle: 'normal',
-	fontWeight: 'bold',
-	lineHeight: '61px',
-	overflow: 'hidden'
-};
-
-const paragraphStyles = {
-	fontFamily: 'Roboto',
-	fontStyle: 'normal',
-	fontWeight: 'normal',
-	fontSize: '20px',
-	lineHeight: '28px',
-	color: '#5B5B5B',
-	height: '56px'
-};
 class CreatePostPage extends React.Component {
+	state = {
+		category: '',
+		categoryList: []
+	};
+
+	onAddItem = (e) => {
+		this.setState({
+			categoryList: this.state.categoryList.concat(this.state.category)
+		});
+	};
+
 	render() {
 		return (
 			<div>
 				<div style={{ background: '#FAFAFA' }}>
-					<div className="ui container ">
-						<div className="ui grid">
-							<div className="eight wide column">
-								<h1 style={leftSide}>Build your own recipe!</h1>
-								<p style={paragraphStyles}>Create your own recipes and share it with the world!</p>
+					<div className="container">
+						<div className="row">
+							<div className="col-sm-12 col-md-12 col-lg-6">
+								<div className="header">Build your own recipe!</div>
+								<p className="paragraphStyles">
+									Craft your own master piece and share it with the world!
+								</p>
 							</div>
-							<div style={rightSide} className="eight wide column">
+							<div className="col-sm-12 col-md-12 col-lg-6 rightSide">
 								<img
 									alt="Bricks"
 									style={{
-										width: '484px',
-										height: '302px'
+										width: '100%',
+										height: '100%'
 									}}
 									src={buildingBlocks}
 								/>
@@ -49,19 +41,42 @@ class CreatePostPage extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className="ui form">
-					<div className="inline fields">
-						<div className="eight wide field">
-							<label>Name</label>
-							<input type="text" placeholder="First Name" />
+
+				<div className="container formContainer">
+					<form className="ui big form ">
+						<div className="fields">
+							<div className="col-sm-12 col-lg-6 field">
+								<div className="subHeading">Recipe name</div>
+								<input type="text" placeholder="Recipe Name" />
+							</div>
+
+							<div className="col-sm-12 col-lg-3 field">
+								<div className="subHeading">Number of servings</div>
+								<input type="text" placeholder="State" />
+							</div>
+
+							<div className="col-sm-12 col-lg-3 field">
+								<div className="subHeading">Cook time</div>
+								<input type="text" placeholder="Zip" />
+							</div>
 						</div>
-						<div className="three wide field">
-							<input type="text" placeholder="Middle Name" />
+						<div className="fields">
+							<div className="col-sm-12 col-lg-6 field">
+								<div className="subHeading">Add tags to your recipe!</div>
+								<div className="ui action input">
+									<input
+										type="text"
+										onChange={(e) => this.setState({ category: e.target.value })}
+										placeholder="Salad, Breakfast, Soup"
+									/>
+									<button className="ui icon button" type="button" onClick={this.onAddItem}>
+										<i className="plus icon" />
+									</button>
+								</div>
+								<CategoryList categories={this.state.categoryList} />
+							</div>
 						</div>
-						<div className="five wide field">
-							<input type="text" placeholder="Last Name" />
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		);
