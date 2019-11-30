@@ -1,13 +1,20 @@
 import React from 'react';
 import '../styles/PostStyles.css';
 import CategoryList from '../components/CategoryList';
-import axios from 'axios';
 import buildingBlocks from '../images/building_blocks.svg';
+import foto from '../images/undraw_searching_p5ux.png';
+import IngredientList from '../components/IngredientList';
+import axios from 'axios';
 
 class CreatePostPage extends React.Component {
 	state = {
 		category: '',
 		categoryList: [],
+		ingredient: '',
+		ingredientList: [],
+		ingredientsError: '',
+		step: '',
+		stepsList: [],
 		selectedFile: null,
 		postTitle: '',
 		postTitleError: '',
@@ -16,34 +23,76 @@ class CreatePostPage extends React.Component {
 	validateForm = () => {
 		let postTitleError = '';
 		let categoryError = '';
+		let ingredientsError = '';
 
 		if (!this.state.postTitle) {
-			postTitleError = 'A recipe must have a name';
+			postTitleError = 'Please enter a recipe name';
 		}
 		if (postTitleError) {
 			this.setState({ postTitleError });
 			return false;
 		}
+		if (!this.state.category) {
+			categoryError = 'Please enter a category';
+		}
+		if (categoryError) {
+			this.setState({ categoryError });
+			return false;
+		}
+		if (!this.state.ingredient) {
+			ingredientsError = 'Please enter ingredients';
+		}
+		if (ingredientsError) {
+			this.setState({ ingredientsError });
+			return false;
+		}
 		return true;
 	};
+
 	onFormSubmit = (e) => {
 		e.preventDefault();
 		const isValid = this.validateForm();
-		if (isValid) {
-			console.log(this.state);
-		}
+
+		// if (isValid) {
+		// 	console.log(this.state);
+		// }
 	};
 	//update recipeName
 	onTitleChange = (e) => {
 		this.setState({ postTitle: e.target.value });
 	};
+	//add to the ingredients array
+	onAddIngredient = (e) => {
+		this.setState({
+			ingredientList: this.state.ingredientList.concat(this.state.ingredient)
+		});
+	};
+	onDeleteIngredient = (e) => {
+		const newList = this.state.ingredientList.filter((ingredient) => {
+			return ingredient !== e;
+		});
 
-	onAddItem = (e) => {
+		this.setState({
+			ingredientList: [ ...newList ]
+		});
+	};
+	//add to the category array
+	onAddCategory = (e) => {
 		this.setState({
 			categoryList: this.state.categoryList.concat(this.state.category)
 		});
 	};
+	onDeleteCategory = (e) => {
+		const newList = this.state.categoryList.filter((category) => {
+			return category !== e;
+		});
 
+		this.setState({
+			categoryList: [ ...newList ]
+		});
+	};
+
+	//update the state to the first index in the array, which is the picture
 	onFileSelected = (e) => {
 		this.setState({ selectedFile: e.target.files[0] });
 	};
@@ -52,6 +101,10 @@ class CreatePostPage extends React.Component {
 	// 	fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
 	// 	axios.post('');
 	// };
+
+	show = () => {
+		console.log(this.state.ingredientList);
+	};
 	render() {
 		return (
 			<div>
@@ -108,20 +161,50 @@ class CreatePostPage extends React.Component {
 
 						<div className="row">
 							<div className="col-sm-12 col-md-12 col-lg-6 field">
-								<div className="subHeading">Add tags to your recipe!</div>
+								<div className="subHeading">Ingredients</div>
 								<div className="ui action input">
-									<input
-										value={this.state.CategoryList}
+									<textarea
+										rows="3"
+										value={this.state.ingredient}
 										type="text"
-										onChange={(e) => this.setState({ category: e.target.value })}
-										placeholder="Salad, Breakfast, Soup"
+										onChange={(e) => this.setState({ ingredient: e.target.value })}
+										placeholder="2 eggs"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddItem}>
+									<button className="ui icon button" type="button" onClick={this.onAddIngredient}>
 										<i className="plus icon" />
 									</button>
 								</div>
-								<CategoryList categories={this.state.categoryList} />
+
+								{this.state.ingredientsError ? (
+									<div className="ui pointing red basic label">{this.state.ingredientsError}</div>
+								) : null}
+								<IngredientList
+									remove={this.onDeleteIngredient}
+									ingredients={this.state.ingredientList}
+								/>
 							</div>
+							{/* <div className="col-sm-12 col-md-12 col-lg-6 field">
+								<div className="subHeading">Ingredients</div>
+								<div className="ui action input">
+									<textarea
+										rows="3"
+										value={this.state.ingredient}
+										type="text"
+										onChange={(e) => this.setState({ ingredient: e.target.value })}
+										placeholder="2 eggs"
+									/>
+									<button className="ui icon button" type="button" onClick={this.onAddIngredient}>
+										<i className="plus icon" />
+									</button>
+								</div>
+
+								{this.state.ingredientsError ? (
+									<div className="ui pointing red basic label">{this.state.ingredientsError}</div>
+								) : null}
+								<List ingredients={this.state.ingredientList} />
+							</div> */}
+						</div>
+						<div className="row">
 							<div style={{ marginTop: '3%' }} className="col-sm-12 col-md-12 col-lg-6 ">
 								<div className="ui placeholder segment">
 									<div className="ui icon header">
@@ -133,7 +216,29 @@ class CreatePostPage extends React.Component {
 								</div>
 							</div>
 						</div>
-						<button type="submit">submit</button>
+						<div className="row">
+							<div className="col-sm-12 col-md-12 col-lg-6 field">
+								<div className="subHeading">Add tags to your recipe!</div>
+								<div className="ui action input">
+									<input
+										value={this.state.category}
+										type="text"
+										onChange={(e) => this.setState({ category: e.target.value })}
+										placeholder="Salad, Breakfast, Soup"
+									/>
+									<button className="ui icon button" type="button" onClick={this.onAddCategory}>
+										<i className="plus icon" />
+									</button>
+								</div>
+								{this.state.categoryError ? (
+									<div className="ui pointing red basic label">{this.state.categoryError}</div>
+								) : null}
+								<CategoryList remove={this.onDeleteCategory} categories={this.state.categoryList} />
+							</div>
+						</div>
+						<button onClick={this.show} className="ui medium orange button" type="submit">
+							submit
+						</button>
 					</form>
 				</div>
 			</div>
