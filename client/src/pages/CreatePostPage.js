@@ -1,9 +1,11 @@
 import React from 'react';
 import '../styles/PostStyles.css';
 import CategoryList from '../components/CategoryList';
+import IngredientList from '../components/IngredientList';
+import CookingDirectionsList from '../components/CookingDirectionsList';
+
 import buildingBlocks from '../images/building_blocks.svg';
 import foto from '../images/undraw_searching_p5ux.png';
-import IngredientList from '../components/IngredientList';
 import axios from 'axios';
 
 class CreatePostPage extends React.Component {
@@ -15,6 +17,7 @@ class CreatePostPage extends React.Component {
 		ingredientsError: '',
 		step: '',
 		stepsList: [],
+		ingredientsError: '',
 		selectedFile: null,
 		postTitle: '',
 		postTitleError: '',
@@ -63,9 +66,14 @@ class CreatePostPage extends React.Component {
 	};
 	//add to the ingredients array
 	onAddIngredient = (e) => {
-		this.setState({
-			ingredientList: this.state.ingredientList.concat(this.state.ingredient)
-		});
+		this.setState(
+			{
+				ingredientList: this.state.ingredientList.concat(this.state.ingredient)
+			},
+			() => {
+				this.setState({ ingredient: '' });
+			}
+		);
 	};
 	onDeleteIngredient = (e) => {
 		const newList = this.state.ingredientList.filter((ingredient) => {
@@ -76,11 +84,38 @@ class CreatePostPage extends React.Component {
 			ingredientList: [ ...newList ]
 		});
 	};
+
+	onAddStep = (e) => {
+		this.setState(
+			{
+				stepsList: this.state.stepsList.concat(this.state.step)
+			},
+			() => {
+				this.setState({ step: '' });
+			}
+		);
+	};
+
+	onDeleteStep = (e) => {
+		const newList = this.state.stepsList.filter((step) => {
+			return step !== e;
+		});
+
+		this.setState({
+			stepsList: [ ...newList ]
+		});
+	};
+
 	//add to the category array
 	onAddCategory = (e) => {
-		this.setState({
-			categoryList: this.state.categoryList.concat(this.state.category)
-		});
+		this.setState(
+			{
+				categoryList: this.state.categoryList.concat(this.state.category)
+			},
+			() => {
+				this.setState({ category: '' });
+			}
+		);
 	};
 	onDeleteCategory = (e) => {
 		const newList = this.state.categoryList.filter((category) => {
@@ -183,26 +218,28 @@ class CreatePostPage extends React.Component {
 									ingredients={this.state.ingredientList}
 								/>
 							</div>
-							{/* <div className="col-sm-12 col-md-12 col-lg-6 field">
-								<div className="subHeading">Ingredients</div>
+
+							<div className="col-sm-12 col-md-12 col-lg-6 field">
+								<div className="subHeading">Cooking Directions</div>
 								<div className="ui action input">
 									<textarea
 										rows="3"
-										value={this.state.ingredient}
+										name="step"
+										value={this.state.step}
 										type="text"
-										onChange={(e) => this.setState({ ingredient: e.target.value })}
-										placeholder="2 eggs"
+										onChange={(e) => this.setState({ step: e.target.value })}
+										placeholder="Please add each direction step by step"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddIngredient}>
+									<button className="ui icon button" type="button" onClick={this.onAddStep}>
 										<i className="plus icon" />
 									</button>
 								</div>
 
-								{this.state.ingredientsError ? (
+								{/* {this.state.ingredientsError ? (
 									<div className="ui pointing red basic label">{this.state.ingredientsError}</div>
-								) : null}
-								<List ingredients={this.state.ingredientList} />
-							</div> */}
+								) : null} */}
+								<CookingDirectionsList remove={this.onDeleteStep} ingredients={this.state.stepsList} />
+							</div>
 						</div>
 						<div className="row">
 							<div style={{ marginTop: '3%' }} className="col-sm-12 col-md-12 col-lg-6 ">
