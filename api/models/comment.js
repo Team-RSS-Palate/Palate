@@ -15,8 +15,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'comment'
-  }
-  );
+  });
+
+  sequelize.sync()
 
   Comment.associate = models => {
     // associations can be defined here

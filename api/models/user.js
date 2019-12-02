@@ -6,14 +6,14 @@ module.exports = (sequelize, DataTypes) => {
 
   User.init({
     username: {
-      type: sequelize.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [5, 25]
       }
     },
     email: {
-      type: sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     // {
@@ -32,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'user'
   });
+
+  sequelize.sync()
 
   User.associate = models => {
     // associations can be defined here

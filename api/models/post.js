@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     imageLink: {
       type: DataTypes.TEXT
+    },
+    directions: {
+      type: DataTypes.ARRAY(DataTypes.ENUM)
     }
   }, {
     sequelize,
