@@ -43,11 +43,10 @@ module.exports = (sequelize, DataTypes) => {
 
 
   Post.associate = models => {
-    Post.belongsTo(User);
-    Post.hasMany(Comment);
+    models.Post.belongsTo(models.User);
+    models.Post.hasMany(models.Comment);
   }
 
   return Post;
 };
 
-export default Post;

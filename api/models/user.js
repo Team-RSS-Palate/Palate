@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = models => {
     // associations can be defined here
 
-    User.hasMany(Post);
+    models.User.hasMany(models.Post);
   };
 
   return User;
