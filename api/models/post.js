@@ -20,9 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     imageLink: {
       type: DataTypes.TEXT
-    },
-    directions: {
-      type: DataTypes.ARRAY(DataTypes.ENUM)
     }
   }, {
     sequelize,
@@ -52,3 +49,5 @@ module.exports = (sequelize, DataTypes) => {
 
   return Post;
 };
+
+export default Post;
