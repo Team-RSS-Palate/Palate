@@ -102,7 +102,10 @@ class CreatePostPage extends React.Component {
 		this.setState({ postTitle: e.target.value });
 	};
 	onTitleChange = (e) => {
-		this.setState({ postDescription: e.target.value });
+		this.setState({ postTitle: e.target.value });
+	};
+	onDescriptionChange = (e) => {
+		this.setState({ description: e.target.value });
 	};
 	//add to the ingredients array
 	onAddIngredient = (e) => {
@@ -161,7 +164,7 @@ class CreatePostPage extends React.Component {
 				title: this.state.postTitle,
 				description: this.state.description,
 				ingredients: this.state.ingredientList,
-				instructions: this.state.CookingDirectionsList,
+				instructions: this.state.stepsList,
 				image: this.state.imageURL
 			})
 		})
@@ -217,7 +220,6 @@ class CreatePostPage extends React.Component {
 							<div className="col-sm-12 col-lg-6 field">
 								<div className="subHeading">Recipe name</div>
 								<input
-									value={this.state.postTitle}
 									name="recipe name"
 									onChange={this.onTitleChange} // possibly remove this since value of it will be the title
 									type="text"
@@ -239,7 +241,6 @@ class CreatePostPage extends React.Component {
 								/>
 							</div>
 						</div>
-
 						<div className="row">
 							<div className="col-sm-12 col-md-12 col-lg-6 field">
 								<div className="subHeading">Ingredients</div>
@@ -287,7 +288,6 @@ class CreatePostPage extends React.Component {
 								<CookingDirectionsList remove={this.onDeleteStep} ingredients={this.state.stepsList} />
 							</div>
 						</div>
-
 						<div className="row">
 							<div className="col-sm-12 col-md-12 col-lg-6 field">
 								<div className="subHeading">Add tags to your recipe!</div>
@@ -312,13 +312,16 @@ class CreatePostPage extends React.Component {
 								<div className="subHeading">Upload image</div>
 								<progress value={this.state.progress} max="100" />
 								<input type="file" onChange={this.handleChange} />
-								<div className="ui small rounded image">
+								<div className="ui small centered rounded image">
 									<img src={this.state.imageURL} />
 								</div>
 							</div>
 						</div>
-
-						<button className="ui medium orange button" type="submit">
+						<button
+							style={{ background: '#FB5B63' }}
+							className="ui  right floated medium  button"
+							type="submit"
+						>
 							Save Recipe
 						</button>
 					</form>
