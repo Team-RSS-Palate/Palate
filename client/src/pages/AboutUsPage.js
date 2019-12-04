@@ -1,12 +1,14 @@
 import React from 'react';
-import Dayan from '../images/DayanProfile.JPG';
+import Dayan from '../images/DayanProfile.png';
+import Eric from '../images/EricProfile.jpg';
+
 import CodePic from '../images/AboutHero.svg';
 
 const AboutUsPage = (props) => {
 	return (
 		<div className="container">
 			<div className="row" style={{ marginBottom: '20%' }}>
-				<div className="col-sm-12 col-md-12 col-lg-4" style={{ marginTop: '10%' }}>
+				<div className="col-sm-12 col-md-12 col-lg-5" style={{ marginTop: '10%' }}>
 					<h1 className="ui header">Meet our team</h1>
 					<h3 class="ui header">
 						<i className="react icon" />
@@ -30,7 +32,7 @@ const AboutUsPage = (props) => {
 						</div>
 					</h3>
 				</div>
-				<div className="col-sm-12 col-md-12 col-lg-8" style={{ marginTop: '15%' }}>
+				<div className="col-sm-12 col-md-12 col-lg-7" style={{ marginTop: '15%' }}>
 					<img style={{ height: '100%', width: '100%' }} src={CodePic} />
 				</div>
 			</div>
@@ -44,7 +46,7 @@ const AboutUsPage = (props) => {
 				<div class="ui three stackable cards">
 					<div className="card">
 						<div className="image">
-							<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" />
+							<img src={Eric} />
 						</div>
 						<div className="content">
 							<a className="header">Eric Sze</a>
@@ -72,7 +74,7 @@ const AboutUsPage = (props) => {
 							<div className="meta">
 								<span className="date">CUNY City Tech</span>
 							</div>
-						</div>
+						</div>q2
 						<div className="extra content">
 							<a style={{ textDecoration: 'none' }} href="https://www.linkedin.com/in/dayan-ramirez/">
 								<i className="linkedin large icon" />
@@ -82,7 +84,7 @@ const AboutUsPage = (props) => {
 							</a>
 						</div>
 					</div>
-					<div className="card">
+					{/* <div className="card">
 						<div className="image">
 							<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" />
 						</div>
@@ -102,7 +104,7 @@ const AboutUsPage = (props) => {
 								</a>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
