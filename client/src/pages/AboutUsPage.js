@@ -1,36 +1,24 @@
 import React from 'react';
 import Dayan from '../images/DayanProfile.png';
 import Eric from '../images/EricProfile.jpg';
-
+import Breakfast from '../images/Breakfast.jpg';
+import Roboto from '../fonts/Roboto-Bold.ttf';
 import CodePic from '../images/AboutHero.svg';
 
 const AboutUsPage = (props) => {
 	return (
 		<div className="container">
-			<div className="row" style={{ marginBottom: '20%' }}>
+			<div className="row" style={{ marginBottom: '20%' }} style={{ fontFamily: { Roboto } }}>
 				<div className="col-sm-12 col-md-12 col-lg-5" style={{ marginTop: '10%' }}>
-					<h1 className="ui header">Meet our team</h1>
-					<h3 class="ui header">
-						<i className="react icon" />
-						<div class="content">
-							Plug-ins
-							<div class="sub header">Check out our plug-in marketplace</div>
-						</div>
-					</h3>
-					<h3 class="ui header">
-						<img src="https://semantic-ui.com/images/avatar2/large/patrick.png" class="ui circular image" />
-						<div class="content">
-							Plug-ins
-							<div class="sub header">Check out our plug-in marketplace</div>
-						</div>
-					</h3>
-					<h3 class="ui header">
-						<img src="https://semantic-ui.com/images/avatar2/large/patrick.png" class="ui circular image" />
-						<div class="content">
-							Plug-ins
-							<div class="sub header">Check out our plug-in marketplace</div>
-						</div>
-					</h3>
+					<h1 className="ui huge header" style={{ fontSize: '40px' }}>
+						About us
+					</h1>
+
+					<div className="content" style={{ fontSize: '16px', color: '#A6A6A6' }}>
+						Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+						or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
+						thought to have scrambled parts{' '}
+					</div>
 				</div>
 				<div className="col-sm-12 col-md-12 col-lg-7" style={{ marginTop: '15%' }}>
 					<img style={{ height: '100%', width: '100%' }} src={CodePic} />
@@ -74,7 +62,7 @@ const AboutUsPage = (props) => {
 							<div className="meta">
 								<span className="date">CUNY City Tech</span>
 							</div>
-						</div>q2
+						</div>
 						<div className="extra content">
 							<a style={{ textDecoration: 'none' }} href="https://www.linkedin.com/in/dayan-ramirez/">
 								<i className="linkedin large icon" />
@@ -84,7 +72,7 @@ const AboutUsPage = (props) => {
 							</a>
 						</div>
 					</div>
-					{/* <div className="card">
+					<div className="card">
 						<div className="image">
 							<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" />
 						</div>
@@ -104,7 +92,7 @@ const AboutUsPage = (props) => {
 								</a>
 							</div>
 						</div>
-					</div> */}
+					</div>
 				</div>
 			</div>
 		</div>
