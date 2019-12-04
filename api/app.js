@@ -21,14 +21,14 @@ app.use(bodyParser.json())
 // app.use(passport.session());
 
 // add http request logging to help us debug and audit app use
-const logFormat = process.env.NODE_ENV==='production' ? 'combined' : 'dev';
+const logFormat = process.env.NODE_ENV === 'production' ? 'combined' : 'dev';
 app.use(morgan(logFormat));
 
 // this mounts controllers/index.js at the route `/api`
 //app.use('/api', require('./controllers'));
 
 // for production use, we serve the static react build folder
-if(process.env.NODE_ENV==='production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 
   // all unknown routes should be handed to our react app
@@ -39,7 +39,7 @@ if(process.env.NODE_ENV==='production') {
 
 // update DB tables based on model updates. Does not handle renaming tables/columns
 // NOTE: toggling this to true drops all tables (including data)
-db.sequelize.sync({ force: true });
+db.sequelize.sync({ force: false });
 
 // start up the server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
