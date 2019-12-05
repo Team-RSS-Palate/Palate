@@ -1,0 +1,39 @@
+.rightSide {
+	margin-top: 10%;
+	padding-bottom: 88px;
+	align-content: center;
+}
+
+.subHeading {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: calc(.5vw + 1em);
+	color: #5b5b5b;
+}
+.heading {
+	margin-top: 12%;
+	font-family: Roboto;
+	color: rgba(0, 0, 0, 0.85);
+	font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+	font-size: calc(3vw + 1em);
+}
+
+.paragraphStyles {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 28px;
+	color: #5b5b5b;
+	height: 56px;
+	text-align: center;
+	white-space: nowrap;
+	font-size: calc(.8vw + 1em);
+}
+
+.formContainer {
+	margin-top: 3%;
+}
