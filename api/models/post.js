@@ -3,48 +3,46 @@ const { Model } = require('sequelize');
 
 
 module.exports = (sequelize, DataTypes) => {
-  class Post extends Model {}
+  class Post extends Model { }
 
   Post.init({
-    // post_id:{
-    //   type: DataTypes.BIGINT,
-    //   autoIncrement: true,
-    //   primaryKey: true,
-    //   allowNull: true
-    // },
     title: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
-    category :{
-      type: DataTypes.TEXT
 
     },
     description: {
       type: DataTypes.TEXT,
-    
     },
-    imageLink:{
+    imageLink: {
       type: DataTypes.TEXT
+    },
+    ingredientsList: {
+      type: DataTypes.ARRAY(DataTypes.TEXT)
+    },
+    stepsList: {
+      type: DataTypes.ARRAY(DataTypes.TEXT)
+    },
+    categoryList: {
+      type: DataTypes.ARRAY(DataTypes.TEXT)
     }
+
   }, {
     sequelize,
     modelName: 'post'
   });
-  sequelize.sync()
-  .then(() => Post.create({
-    title : "Pancakes",
-    category: "Breakfast",
-    imageLink : "https://images-gmi-pmc.edge-generalmills.com/edfaaf9f-9bde-426a-8d67-3284e9e496ae.jpg",
-    description: "Healthy Meal For KIDS! YOU WANT TO BLAHAHAAHAHAHAHAAHHA"
 
-   
-  
-  }))
-  .then(jane => {
-    console.log(jane.toJSON());
-  });
+  //   -> nullable number of servings & cook time
+  // array -> cooking directions
+  // array -> ingredients
+  // array -> tags
 
+
+
+  Post.associate = models => {
+    models.Post.belongsTo(models.User);
+    models.Post.hasMany(models.Comment);
+  }
 
   return Post;
 };
+
