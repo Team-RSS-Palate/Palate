@@ -1,6 +1,8 @@
 import React from 'react';
 import Dayan from '../images/DayanProfile.png';
 import Eric from '../images/EricProfile.jpg';
+import Tyron from '../images/TyronProfile.png';
+
 import Breakfast from '../images/Breakfast.jpg';
 import Roboto from '../fonts/Roboto-Bold.ttf';
 import CodePic from '../images/AboutHero.svg';
@@ -74,7 +76,7 @@ const AboutUsPage = (props) => {
 					</div>
 					<div className="card">
 						<div className="image">
-							<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" />
+							<img src={Tyron} />
 						</div>
 						<div className="content">
 							<a className="header">Tyron Samaroo</a>
