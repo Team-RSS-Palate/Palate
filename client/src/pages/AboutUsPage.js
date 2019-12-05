@@ -3,6 +3,7 @@ import Dayan from '../images/DayanProfile.png';
 import Eric from '../images/EricProfile.jpg';
 import Tyron from '../images/TyronProfile.png';
 
+
 import Breakfast from '../images/Breakfast.jpg';
 import Roboto from '../fonts/Roboto-Bold.ttf';
 import CodePic from '../images/AboutHero.svg';
