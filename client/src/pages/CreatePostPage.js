@@ -153,6 +153,8 @@ class CreatePostPage extends React.Component {
 	};
 
 	onSavePost = (event) => {
+
+		
 		fetch('/api/posts/', {
 			//fetch data from the API || get the posts from the database
 			method: 'POST',
