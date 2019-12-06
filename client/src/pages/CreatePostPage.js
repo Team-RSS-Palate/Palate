@@ -165,7 +165,8 @@ class CreatePostPage extends React.Component {
 				description: this.state.description,
 				ingredients: this.state.ingredientList,
 				instructions: this.state.stepsList,
-				image: this.state.imageURL
+				image: this.state.imageURL,
+				categories: this.state.categoryList
 			})
 		})
 			.then((res) => {
@@ -329,6 +330,7 @@ class CreatePostPage extends React.Component {
 								style={{ background: '#FB5B63' }}
 								className="ui right floated large  teal button"
 								type="submit"
+								onClick={this.onSavePost}
 							>
 								Save Recipe
 							</button>
