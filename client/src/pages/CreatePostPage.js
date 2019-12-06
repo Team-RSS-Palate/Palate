@@ -60,38 +60,38 @@ class CreatePostPage extends React.Component {
 			}
 		);
 	};
-	validateForm = () => {
-		let postTitleError = '';
-		let categoryError = '';
-		let ingredientsError = '';
+	// validateForm = () => {
+	// 	let postTitleError = '';
+	// 	let categoryError = '';
+	// 	let ingredientsError = '';
 
-		if (!this.state.postTitle) {
-			postTitleError = 'Please enter a recipe name';
-		}
-		if (postTitleError) {
-			this.setState({ postTitleError });
-			return false;
-		}
-		if (!this.state.category) {
-			categoryError = 'Please enter a category';
-		}
-		if (categoryError) {
-			this.setState({ categoryError });
-			return false;
-		}
-		if (!this.state.ingredient) {
-			ingredientsError = 'Please enter ingredients';
-		}
-		if (ingredientsError) {
-			this.setState({ ingredientsError });
-			return false;
-		}
-		return true;
-	};
+	// 	if (!this.state.postTitle) {
+	// 		postTitleError = 'Please enter a recipe name';
+	// 	}
+	// 	if (postTitleError) {
+	// 		this.setState({ postTitleError });
+	// 		return false;
+	// 	}
+	// 	if (!this.state.category) {
+	// 		categoryError = 'Please enter a category';
+	// 	}
+	// 	if (categoryError) {
+	// 		this.setState({ categoryError });
+	// 		return false;
+	// 	}
+	// 	if (!this.state.ingredient) {
+	// 		ingredientsError = 'Please enter ingredients';
+	// 	}
+	// 	if (ingredientsError) {
+	// 		this.setState({ ingredientsError });
+	// 		return false;
+	// 	}
+	// 	return true;
+	// };
 
 	onFormSubmit = (e) => {
 		e.preventDefault();
-		const isValid = this.validateForm();
+		// const isValid = this.validateForm();
 
 		// if (isValid) {
 		// 	console.log(this.state);
@@ -153,8 +153,6 @@ class CreatePostPage extends React.Component {
 	};
 
 	onSavePost = (event) => {
-
-		
 		fetch('/api/posts/', {
 			//fetch data from the API || get the posts from the database
 			method: 'POST',
