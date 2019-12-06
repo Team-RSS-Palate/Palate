@@ -165,7 +165,8 @@ class CreatePostPage extends React.Component {
 				description: this.state.description,
 				ingredients: this.state.ingredientList,
 				instructions: this.state.stepsList,
-				image: this.state.imageURL
+				image: this.state.imageURL,
+				categories: this.state.categoryList
 			})
 		})
 			.then((res) => {
@@ -310,20 +311,30 @@ class CreatePostPage extends React.Component {
 
 							<div className="col-sm-12 col-md-12 col-lg-6 ">
 								<div className="subHeading">Upload image</div>
-								<progress value={this.state.progress} max="100" />
 								<input type="file" onChange={this.handleChange} />
-								<div className="ui small centered rounded image">
-									<img src={this.state.imageURL} />
+								<div>
+									{' '}
+									<progress value={this.state.progress} max="100" />
+									<img
+										className="ui small centered round image"
+										src={
+											this.state.imageURL || 'https://semantic-ui.com/images/wireframe/image.png'
+										}
+										alt="Uploaded image"
+									/>
 								</div>
 							</div>
 						</div>
-						<button
-							style={{ background: '#FB5B63' }}
-							className="ui  right floated medium  button"
-							type="submit"
-						>
-							Save Recipe
-						</button>
+						<div style={{ marginTop: '3%' }}>
+							<button
+								style={{ background: '#FB5B63' }}
+								className="ui right floated large  teal button"
+								type="submit"
+								onClick={this.onSavePost}
+							>
+								Save Recipe
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>
