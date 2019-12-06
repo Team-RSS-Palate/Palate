@@ -13,16 +13,16 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.TEXT,
     },
-    imageLink: {
+    image: {
       type: DataTypes.TEXT
     },
-    ingredientsList: {
+    ingredients: {
       type: DataTypes.ARRAY(DataTypes.TEXT)
     },
-    stepsList: {
+    instructions: {
       type: DataTypes.ARRAY(DataTypes.TEXT)
     },
-    categoryList: {
+    categories: {
       type: DataTypes.ARRAY(DataTypes.TEXT)
     }
 
