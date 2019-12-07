@@ -3,23 +3,20 @@ import { Link } from 'react-router-dom';
 
 function Post({ title, description, image, categories, createdAt, id }) {
 	return (
-		<div class="card">
-			<div class="image">
-				<img src={image} />
-			</div>
-			<div class="content">
-				<div class="header">{title}</div>
-				<div class="meta">
-					<a>{categories}</a>
+		<div className="card h-100">
+			<img src={image} className="card-img-top" alt={title} />
+			<div className="card-body">
+				<div className="card-title">
+					<h5 style={{ fontWeight: 'bold' }}>{title}</h5>
 				</div>
-				<div class="description">{description}</div>
+				<a className="ui basic label">
+					<i className="utensils  icon" />
+					{categories}
+				</a>
+				<p className="card-text">{description}</p>
 			</div>
-			<div class="extra content">
-				<span class="right floated">{createdAt}</span>
-				{/* <span>
-					<i class="user icon" />
-					75 Friends
-				</span> */}
+			<div className="card-footer">
+				<small className="text-muted">{createdAt}</small>
 			</div>
 		</div>
 	);
