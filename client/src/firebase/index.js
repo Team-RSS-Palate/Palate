@@ -1,10 +1,13 @@
 import firebase from 'firebase/app';
 import 'firebase/storage';
+const dotenv = require('dotenv');
+dotenv.config();
+
 
 // Initialize Firebase
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyAtibiNb-NmAx94JkV2KoDmy2mhZ4s5fu8',
+	apiKey: process.env.apiKey,
 	authDomain: 'image-uploader-9ee98.firebaseapp.com',
 	databaseURL: 'https://image-uploader-9ee98.firebaseio.com',
 	projectId: 'image-uploader-9ee98',

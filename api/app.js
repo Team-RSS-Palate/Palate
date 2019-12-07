@@ -4,7 +4,11 @@ const morgan = require('morgan');
 const path = require('path');
 const db = require('./models');
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config();
+
 const PORT = process.env.PORT || 8000;
+
 
 
 // this lets us parse 'application/json' content in http requests
@@ -33,3 +37,4 @@ db.sequelize.sync({ force: false });
 
 // start up the server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
