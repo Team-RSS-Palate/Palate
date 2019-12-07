@@ -22,6 +22,9 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<div>
+				<div className=" h1 mx-auto" style={{ width: '300px', marginTop: '5%', marginBottom: '5%' }}>
+					Browse by cuisine
+				</div>
 				<ChoiceSlider />
 				<div className="container">
 					<div style={{ marginTop: '5%' }} className="card-columns">
