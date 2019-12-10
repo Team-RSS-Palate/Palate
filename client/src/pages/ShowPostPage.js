@@ -23,10 +23,19 @@ class ShowPostPage extends React.Component {
 				});
 			});
 	}
-
+	show = () => {
+		console.log(this.state.post.props.image);
+	};
 	render() {
 		if (this.state.notFound) return <Redirect to="/" />;
-		return this.state.post;
+		return (
+			<div className="container">
+				{this.state.post ? (
+					<img src={this.state.post.props.image} className="img-fluid" alt="Responsive image" />
+				) : null}
+				<button onClick={this.show}>touch me</button>
+			</div>
+		);
 	}
 }
 
