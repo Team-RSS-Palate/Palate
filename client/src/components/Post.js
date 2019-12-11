@@ -5,12 +5,12 @@ function Post({ title, description, image, categories, createdAt, id }) {
 	return (
 		<div className="card h-100">
 			<Link to={'/posts/' + id}>
-				<img src={image} className="card-img-top" alt={title} />{' '}
+				<img src={image} className="card-img-top" alt={title} />
 			</Link>
 
 			<div className="card-body">
 				<div className="card-title">
-					<Link to={'/posts/' + id}>
+					<Link to={'/posts/' + id} style={{ color: 'black', textDecoration: 'none' }}>
 						<h5 style={{ fontWeight: 'bold' }}>{title}</h5>
 					</Link>
 				</div>
