@@ -245,15 +245,20 @@ class CreatePostPage extends React.Component {
 						<div className="row">
 							<div className="col-sm-12 col-md-12 col-lg-6 field">
 								<div className="subHeading">Ingredients</div>
+								<label>Please add each ingredients one by one</label>
 								<div className="ui action input">
 									<textarea
 										rows="3"
 										value={this.state.ingredient}
 										type="text"
 										onChange={(e) => this.setState({ ingredient: e.target.value })}
-										placeholder="2 eggs"
+										placeholder="1 small onion, minced"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddIngredient}>
+									<button
+										className="ui icon green button"
+										type="button"
+										onClick={this.onAddIngredient}
+									>
 										<i className="plus icon" />
 									</button>
 								</div>
@@ -269,6 +274,7 @@ class CreatePostPage extends React.Component {
 
 							<div className="col-sm-12 col-md-12 col-lg-6 field">
 								<div className="subHeading">Cooking Directions</div>
+								<label>Please add each direction step by step</label>
 								<div className="ui action input">
 									<textarea
 										rows="3"
@@ -276,9 +282,9 @@ class CreatePostPage extends React.Component {
 										value={this.state.step}
 										type="text"
 										onChange={(e) => this.setState({ step: e.target.value })}
-										placeholder="Please add each direction step by step"
+										placeholder="3 tablespoons all-purpose flour, or as needed"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddStep}>
+									<button className="ui icon green button" type="button" onClick={this.onAddStep}>
 										<i className="plus icon" />
 									</button>
 								</div>
@@ -299,7 +305,7 @@ class CreatePostPage extends React.Component {
 										onChange={(e) => this.setState({ category: e.target.value })}
 										placeholder="Salad, Breakfast, Soup"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddCategory}>
+									<button className="ui icon green button" type="button" onClick={this.onAddCategory}>
 										<i className="plus icon" />
 									</button>
 								</div>
