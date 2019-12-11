@@ -1,4 +1,5 @@
 import React from 'react';
+import burger from '../images/undraw_Hamburger_8ge6.svg';
 
 class LogInPage extends React.Component {
 	render() {
@@ -9,7 +10,16 @@ class LogInPage extends React.Component {
 			fontSize: '52px',
 			lineHeight: '61px',
 			color: '#000000',
-			marginBottom: '5%'
+			marginBottom: '10%'
+		};
+		const secondHeadingStyles = {
+			fontFamily: 'Roboto',
+			fontStyle: 'normal',
+			fontWeight: 'bold',
+			fontSize: '32px',
+			lineHeight: '61px',
+			color: '#333',
+			marginBottom: '0%'
 		};
 		const inputStyles = {
 			border: '1px solid #D5D5D5',
@@ -36,7 +46,7 @@ class LogInPage extends React.Component {
 		};
 		const buttonStyles = {
 			width: '397px',
-			height: '65px',
+			height: '60px',
 			left: '122px',
 			top: '682px',
 			background: '#FD5C63',
@@ -81,7 +91,7 @@ class LogInPage extends React.Component {
 										<p style={tinyLabelStyles}>Email address</p>
 										<input placeholder="JonSnow@gmail.com" style={inputStyles} type="Email" />
 									</div>
-									<div style={{ marginTop: '3%' }}>
+									<div style={{ marginTop: '5%' }}>
 										<p style={tinyLabelStyles}>Password</p>
 										<input placeholder="Enter your password" style={inputStyles} type="password" />
 									</div>
@@ -94,7 +104,22 @@ class LogInPage extends React.Component {
 							</div>
 						</div>
 					</div>
-					<div className="col-lg-6" style={{ background: 'rgba(253, 92, 99, 0.5)' }} />
+					<div className="col-lg-6" style={{ background: 'rgba(253, 92, 99, 0.5)' }}>
+						<div style={{ marginLeft: '100px', marginTop: '190px' }}>
+							<h2 style={secondHeadingStyles}>Welcome back!</h2>
+							<p style={{ fontSize: '18px', color: '#333', width: '229px', fontFamily: 'Roboto' }}>
+								Enter your personal info to begin your journey with us
+							</p>
+							<img
+								src={burger}
+								alt="burger"
+								style={{
+									width: '100%',
+									height: '100%'
+								}}
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 		);
