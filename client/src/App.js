@@ -15,7 +15,7 @@ function App() {
 	return (
 		<Router>
 			<Navagation />
-			<Switch>
+			<Switch>	
 				<Route path="/about-us" component={AboutUsPage} />
 				<Route path="/user/signin" component={LogInPage} />
 				<Route path="/user/signup" component={SignUpPage} />
