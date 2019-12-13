@@ -1,0 +1,70 @@
+.title {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 48px;
+	color: rgba(0, 0, 0, 0.85);
+}
+
+.showPageSubHeading {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 5%;
+
+	color: #fd5c63;
+}
+
+.itemContainer {
+	margin-top: 7%;
+}
+.description {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+
+	color: rgba(0, 0, 0, 0.85);
+}
+
+.itemList {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	/* identical to box height */
+
+	color: rgba(0, 0, 0, 0.85);
+}
+
+input[type=checkbox]:checked + label {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	/* identical to box height */
+	text-decoration-line: line-through;
+	text-decoration-color: red;
+
+	/* color: #929292; */
+}
+.ui.checkbox .box,
+.ui.checkbox label {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	/* identical to box height */
+
+	color: rgba(0, 0, 0, 0.85);
+}
+
+.stepStyle {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+
+	color: rgba(0, 0, 0, 0.85);
+}
