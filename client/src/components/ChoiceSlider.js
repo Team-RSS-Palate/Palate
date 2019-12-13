@@ -1,12 +1,13 @@
 import React from 'react';
-import foto from '../images/undraw_searching_p5ux.png';
+import { Link } from 'react-router-dom';
+
 import Breakfast from '../images/breakfastImage.jpg';
 import Healthy from '../images/healthyImage.jpg';
 import Burger from '../images/burgerImage.jpg';
 import Dessert from '../images/dessertImage.jpg';
 import Mexican from '../images/mexicanImage.jpg';
 
-const ChoiceSlider = () => {
+const ChoiceSlider = ({ categories }) => {
 	// Create a loop that will render each slide item with its right image
 
 	return (
@@ -16,7 +17,9 @@ const ChoiceSlider = () => {
 					<img style={{ height: '240px' }} className="ui medium image" src={Breakfast} />
 				</div>
 				<div className="content">
+					{/* <Link to={'/posts/category' + 'Breakfast'}> */}
 					<h2 className="header">Breakfast</h2>
+					{/* </Link> */}
 				</div>
 			</div>
 			<div className="card ui raised card">

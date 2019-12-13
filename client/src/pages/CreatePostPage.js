@@ -60,38 +60,38 @@ class CreatePostPage extends React.Component {
 			}
 		);
 	};
-	validateForm = () => {
-		let postTitleError = '';
-		let categoryError = '';
-		let ingredientsError = '';
+	// validateForm = () => {
+	// 	let postTitleError = '';
+	// 	let categoryError = '';
+	// 	let ingredientsError = '';
 
-		if (!this.state.postTitle) {
-			postTitleError = 'Please enter a recipe name';
-		}
-		if (postTitleError) {
-			this.setState({ postTitleError });
-			return false;
-		}
-		if (!this.state.category) {
-			categoryError = 'Please enter a category';
-		}
-		if (categoryError) {
-			this.setState({ categoryError });
-			return false;
-		}
-		if (!this.state.ingredient) {
-			ingredientsError = 'Please enter ingredients';
-		}
-		if (ingredientsError) {
-			this.setState({ ingredientsError });
-			return false;
-		}
-		return true;
-	};
+	// 	if (!this.state.postTitle) {
+	// 		postTitleError = 'Please enter a recipe name';
+	// 	}
+	// 	if (postTitleError) {
+	// 		this.setState({ postTitleError });
+	// 		return false;
+	// 	}
+	// 	if (!this.state.category) {
+	// 		categoryError = 'Please enter a category';
+	// 	}
+	// 	if (categoryError) {
+	// 		this.setState({ categoryError });
+	// 		return false;
+	// 	}
+	// 	if (!this.state.ingredient) {
+	// 		ingredientsError = 'Please enter ingredients';
+	// 	}
+	// 	if (ingredientsError) {
+	// 		this.setState({ ingredientsError });
+	// 		return false;
+	// 	}
+	// 	return true;
+	// };
 
 	onFormSubmit = (e) => {
 		e.preventDefault();
-		const isValid = this.validateForm();
+		// const isValid = this.validateForm();
 
 		// if (isValid) {
 		// 	console.log(this.state);
@@ -153,8 +153,6 @@ class CreatePostPage extends React.Component {
 	};
 
 	onSavePost = (event) => {
-
-		
 		fetch('/api/posts/', {
 			//fetch data from the API || get the posts from the database
 			method: 'POST',
@@ -247,15 +245,21 @@ class CreatePostPage extends React.Component {
 						<div className="row">
 							<div className="col-sm-12 col-md-12 col-lg-6 field">
 								<div className="subHeading">Ingredients</div>
+								<label>Please add each ingredients one by one</label>
 								<div className="ui action input">
 									<textarea
 										rows="3"
 										value={this.state.ingredient}
 										type="text"
 										onChange={(e) => this.setState({ ingredient: e.target.value })}
-										placeholder="2 eggs"
+										placeholder="1 small onion, minced"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddIngredient}>
+									<button
+										style={{ background: '#FB5B63' }}
+										className="ui icon green button"
+										type="button"
+										onClick={this.onAddIngredient}
+									>
 										<i className="plus icon" />
 									</button>
 								</div>
@@ -271,6 +275,7 @@ class CreatePostPage extends React.Component {
 
 							<div className="col-sm-12 col-md-12 col-lg-6 field">
 								<div className="subHeading">Cooking Directions</div>
+								<label>Please add each direction step by step</label>
 								<div className="ui action input">
 									<textarea
 										rows="3"
@@ -278,9 +283,14 @@ class CreatePostPage extends React.Component {
 										value={this.state.step}
 										type="text"
 										onChange={(e) => this.setState({ step: e.target.value })}
-										placeholder="Please add each direction step by step"
+										placeholder="3 tablespoons all-purpose flour, or as needed"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddStep}>
+									<button
+										style={{ background: '#FB5B63' }}
+										className="ui icon green button"
+										type="button"
+										onClick={this.onAddStep}
+									>
 										<i className="plus icon" />
 									</button>
 								</div>
@@ -301,7 +311,12 @@ class CreatePostPage extends React.Component {
 										onChange={(e) => this.setState({ category: e.target.value })}
 										placeholder="Salad, Breakfast, Soup"
 									/>
-									<button className="ui icon button" type="button" onClick={this.onAddCategory}>
+									<button
+										style={{ background: '#FB5B63' }}
+										className="ui icon green button"
+										type="button"
+										onClick={this.onAddCategory}
+									>
 										<i className="plus icon" />
 									</button>
 								</div>
@@ -315,7 +330,6 @@ class CreatePostPage extends React.Component {
 								<div className="subHeading">Upload image</div>
 								<input type="file" onChange={this.handleChange} />
 								<div>
-									{' '}
 									<progress value={this.state.progress} max="100" />
 									<img
 										className="ui small centered round image"
@@ -329,8 +343,7 @@ class CreatePostPage extends React.Component {
 						</div>
 						<div style={{ marginTop: '3%' }}>
 							<button
-								style={{ background: '#FB5B63' }}
-								className="ui right floated large  teal button"
+								className="ui right floated large blue button"
 								type="submit"
 								onClick={this.onSavePost}
 							>
