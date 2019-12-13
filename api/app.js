@@ -5,7 +5,6 @@ const path = require('path');
 const db = require('./models');
 const app = express();
 
-
 const PORT = process.env.PORT || 8000;
 
 
@@ -36,4 +35,3 @@ db.sequelize.sync({ force: false });
 
 // start up the server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-
