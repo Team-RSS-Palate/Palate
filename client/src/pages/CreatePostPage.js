@@ -255,6 +255,7 @@ class CreatePostPage extends React.Component {
 										placeholder="1 small onion, minced"
 									/>
 									<button
+										style={{ background: '#FB5B63' }}
 										className="ui icon green button"
 										type="button"
 										onClick={this.onAddIngredient}
@@ -284,7 +285,12 @@ class CreatePostPage extends React.Component {
 										onChange={(e) => this.setState({ step: e.target.value })}
 										placeholder="3 tablespoons all-purpose flour, or as needed"
 									/>
-									<button className="ui icon green button" type="button" onClick={this.onAddStep}>
+									<button
+										style={{ background: '#FB5B63' }}
+										className="ui icon green button"
+										type="button"
+										onClick={this.onAddStep}
+									>
 										<i className="plus icon" />
 									</button>
 								</div>
@@ -305,7 +311,12 @@ class CreatePostPage extends React.Component {
 										onChange={(e) => this.setState({ category: e.target.value })}
 										placeholder="Salad, Breakfast, Soup"
 									/>
-									<button className="ui icon green button" type="button" onClick={this.onAddCategory}>
+									<button
+										style={{ background: '#FB5B63' }}
+										className="ui icon green button"
+										type="button"
+										onClick={this.onAddCategory}
+									>
 										<i className="plus icon" />
 									</button>
 								</div>
@@ -319,7 +330,6 @@ class CreatePostPage extends React.Component {
 								<div className="subHeading">Upload image</div>
 								<input type="file" onChange={this.handleChange} />
 								<div>
-									{' '}
 									<progress value={this.state.progress} max="100" />
 									<img
 										className="ui small centered round image"
@@ -333,8 +343,7 @@ class CreatePostPage extends React.Component {
 						</div>
 						<div style={{ marginTop: '3%' }}>
 							<button
-								style={{ background: '#FB5B63' }}
-								className="ui right floated large  teal button"
+								className="ui right floated large blue button"
 								type="submit"
 								onClick={this.onSavePost}
 							>
