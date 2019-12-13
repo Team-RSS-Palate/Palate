@@ -4,7 +4,7 @@ const IngredientList = (props) => {
 	const ingredients = props.ingredients.map((ingredient, index) => {
 		return (
 			<div className="item" key={index}>
-				<i style={{ color: 'red' }} className="close icon" onClick={(e) => props.remove(ingredient)} />
+				<i className="close icon" onClick={(e) => props.remove(ingredient)} />
 				<div className="content">
 					{/* <p className="medium header">Step {index + 1}</p> */}
 					<p>{ingredient}</p>
