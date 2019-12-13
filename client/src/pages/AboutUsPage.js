@@ -17,9 +17,9 @@ const AboutUsPage = (props) => {
 					</h1>
 
 					<div className="content" style={{ fontSize: '16px', color: '#A6A6A6' }}>
-						Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-						or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
-						thought to have scrambled parts{' '}
+						We are group of CUNY students and developers who enjoy building apps related to our interests.
+						We are preparing to enter the tech industry and we welcome you to check out our projects. You
+						can send us a message to learn more about what we do!
 					</div>
 				</div>
 				<div className="col-sm-12 col-md-12 col-lg-7" style={{ marginTop: '15%' }}>

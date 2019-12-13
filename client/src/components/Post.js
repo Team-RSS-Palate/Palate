@@ -16,7 +16,7 @@ function Post({ title, description, image, categories, createdAt, id }) {
 				</div>
 				<a className="ui basic label">
 					<i className="utensils  icon" />
-					{categories}
+					{categories.map((category, index) => <span>{category + '  '}</span>)}
 				</a>
 				<p className="card-text">{description}</p>
 			</div>

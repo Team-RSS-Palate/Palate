@@ -84,17 +84,17 @@ class ShowPostPage extends React.Component {
 							<div className="itemContainer">
 								<h2 className="showPageSubHeading">Comments</h2>
 
-								<div class="ui comments">
-									<div class="comment">
-										<a class="avatar">
+								<div className="ui comments">
+									<div className="comment">
+										<a className="avatar">
 											<img src={Guy} />
 										</a>
-										<div class="content">
-											<a class="author">Joe Henderson</a>
-											<div class="metadata">
-												<div class="date">1 day ago</div>
+										<div className="content">
+											<a className="author">Joe Henderson</a>
+											<div className="metadata">
+												<div className="date">1 day ago</div>
 											</div>
-											<div class="text">
+											<div className="text">
 												<p>
 													The hours, minutes and seconds stand as visible reminders that your
 													effort put them all there.{' '}
@@ -104,32 +104,32 @@ class ShowPostPage extends React.Component {
 													Impermanent your efforts are.
 												</p>
 											</div>
-											<div class="actions">
-												<a class="reply">Reply</a>
+											<div className="actions">
+												<a className="reply">Reply</a>
 											</div>
 										</div>
 									</div>
-									<div class="comment">
-										<a class="avatar">
+									<div className="comment">
+										<a className="avatar">
 											<img src={Girl} />
 										</a>
-										<div class="content">
-											<a class="author">Christian Rocha</a>
-											<div class="metadata">
-												<div class="date">2 days ago</div>
+										<div className="content">
+											<a className="author">Christian Rocha</a>
+											<div className="metadata">
+												<div className="date">2 days ago</div>
 											</div>
-											<div class="text">I re-tweeted this.</div>
-											<div class="actions">
-												<a class="reply">Reply</a>
+											<div className="text">I re-tweeted this.</div>
+											<div className="actions">
+												<a className="reply">Reply</a>
 											</div>
 										</div>
 									</div>
-									<form class="ui reply form">
-										<div class="field">
+									<form className="ui reply form">
+										<div className="field">
 											<textarea />
 										</div>
-										<div class="ui primary submit labeled icon button">
-											<i class="icon edit" /> Add Comment
+										<div className="ui primary submit labeled icon button">
+											<i className="icon edit" /> Add Comment
 										</div>
 									</form>
 								</div>
@@ -137,7 +137,12 @@ class ShowPostPage extends React.Component {
 						</div>
 
 						<div className="col-sm-12 col-md-12 col-lg-6">
-							<img style={{ marginTop: '8%' }} src={this.state.post.props.image} className="img-fluid ui round image" alt="Responsive image" />
+							<img
+								style={{ marginTop: '8%' }}
+								src={this.state.post.props.image}
+								className="img-fluid ui round image"
+								alt="Responsive image"
+							/>
 						</div>
 					</div>
 				) : null}
